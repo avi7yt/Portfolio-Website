@@ -134,24 +134,26 @@ export default function Navbar() {
         {/* Mobile Menu */}
         <AnimatePresence>
           {isMenuOpen && (
+            // Render a fixed full-width overlay below the navbar to avoid stacking/overlay issues on mobile
             <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              className="md:hidden overflow-hidden"
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              className="md:hidden fixed left-0 right-0 top-16 z-50 bg-background/95 border-t border-border"
             >
-              <div className="flex flex-col gap-4 pt-4">
-                {navLinks.map((link) => (
-                  <motion.a
-                    key={link.name}
-                    href={link.href}
-                    onClick={(e) => scrollToSection(e, link.href)}
-                    className="text-muted-foreground hover:text-foreground transition-colors py-2"
-                    whileHover={{ x: 4 }}
-                  >
-                    {link.name}
-                  </motion.a>
-                ))}
+              <div className="max-w-6xl mx-auto px-6 py-4">
+                <div className="flex flex-col gap-4 pt-2">
+                  {navLinks.map((link) => (
+                    <a
+                      key={link.name}
+                      href={link.href}
+                      onClick={(e) => scrollToSection(e, link.href)}
+                      className="text-muted-foreground hover:text-foreground transition-colors py-2"
+                    >
+                      {link.name}
+                    </a>
+                  ))}
+                </div>
               </div>
             </motion.div>
           )}
