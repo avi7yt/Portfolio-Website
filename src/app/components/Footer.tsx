@@ -27,7 +27,7 @@ export default function Footer() {
             viewport={{ once: true }}
             className="text-center md:text-left"
           >
-            <p className="font-semibold text-xl mb-2">Avi Vishwakarma</p>
+            <p className="font-semibold text-xl mb-2">Akash Vishwakarma</p>
             <p className="text-sm text-muted-foreground flex items-center gap-2 justify-center md:justify-start">
               Built with <Heart className="w-4 h-4 text-red-500 fill-current" /> and React
             </p>

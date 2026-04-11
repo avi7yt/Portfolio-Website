@@ -46,7 +46,7 @@ export default function About() {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <p className="text-lg text-muted-foreground mb-6">
-              I’m Avi Vishwakarma, a web developer and a student at ABES Engineering College. I believe in building in public and sharing my learning journey with others.
+              I’m Akash Vishwakarma, a web developer and a student at ABES Engineering College. I believe in building in public and sharing my learning journey with others.
             </p>
             <p className="text-lg text-muted-foreground mb-6">
               Currently, I’m focused on improving my web development skills while exploring the world of artificial intelligence. My goal is to combine these skills to create solutions that actually solve real problems.

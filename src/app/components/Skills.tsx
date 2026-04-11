@@ -9,9 +9,9 @@ export default function Skills() {
       color: 'from-blue-500 to-cyan-500',
       skills: [
         { name: 'HTML', level: 90 },
-        { name: 'CSS', level: 85 },
-        { name: 'JavaScript', level: 80 },
-        { name: 'Tailwind CSS', level: 85 },
+        { name: 'CSS', level: 45 },
+        { name: 'JavaScript', level: 25 },
+        { name: 'Tailwind CSS', level: 75 },
       ],
     },
     {
@@ -30,10 +30,10 @@ export default function Skills() {
       title: 'Learning',
       color: 'from-orange-500 to-red-500',
       skills: [
-        { name: 'React', level: 60 },
-        { name: 'Node.js', level: 50 },
-        { name: 'AI/ML', level: 40 },
-        { name: 'TypeScript', level: 55 },
+        { name: 'React', level: 20 },
+        { name: 'Node.js', level: 10 },
+        { name: 'AI/ML', level: 5 },
+        { name: 'TypeScript', level: 5 },
       ],
     },
   ];
