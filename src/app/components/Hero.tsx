@@ -38,7 +38,7 @@ export default function Hero() {
 
           <h1 className="mb-6">
             <span className="block text-5xl md:text-7xl mb-4">
-              Hi, I'm <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">Avi Vishwakarma</span>
+              Hi, I'm <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">Avi</span>
             </span>
             <span className="block text-3xl md:text-5xl text-muted-foreground">
               <TypeAnimation
@@ -65,7 +65,7 @@ export default function Hero() {
             transition={{ delay: 0.2 }}
             className="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto"
           >
-            I build websites and share my journey publicly. Student at LPU, passionate about web development and AI.
+            I build websites and share my journey publicly. Student at ABES Engineering College, passionate about web development and AI.
           </motion.p>
 
           <motion.div

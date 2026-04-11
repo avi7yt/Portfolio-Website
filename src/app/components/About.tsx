@@ -5,8 +5,8 @@ export default function About() {
   const highlights = [
     {
       icon: GraduationCap,
-      title: 'Student at LPU',
-      description: 'Pursuing my degree while building real-world projects',
+      title: 'Student at ABES',
+      description: 'Pursuing my B.Tech degree in CSE while building real-world projects',
     },
     {
       icon: Code2,
@@ -46,18 +46,15 @@ export default function About() {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <p className="text-lg text-muted-foreground mb-6">
-              I'm Avi Vishwakarma, a passionate web developer and student at Lovely Professional University.
-              I believe in building in public and sharing my learning journey with the community.
+              I’m Avi Vishwakarma, a web developer and a student at ABES Engineering College. I believe in building in public and sharing my learning journey with others.
             </p>
             <p className="text-lg text-muted-foreground mb-6">
-              Currently, I'm focused on mastering web development technologies while exploring the exciting
-              world of artificial intelligence. My goal is to combine these skills to create innovative
-              solutions that solve real problems.
+              Currently, I’m focused on improving my web development skills while exploring the world of artificial intelligence. My goal is to combine these skills to create solutions that actually solve real problems.
             </p>
             <p className="text-lg text-muted-foreground">
-              When I'm not coding, you'll find me working on ExamSetu, learning new technologies,
-              or planning my next freelance project. I'm always open to collaboration and new opportunities.
+              I’m learning full-stack web development and actively building real-world projects, along with understanding how to deploy them. I’ve worked on projects like a fitness app UI, a to-do list app, and a weather app, and I’ve also recreated platforms like Netflix and Lenskart to understand real-world design and structure.
             </p>
+
           </motion.div>
 
           <motion.div

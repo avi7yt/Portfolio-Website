@@ -59,7 +59,7 @@ export default function Blog() {
   ];
 
   return (
-    <section id="blog" className="py-24 px-6 bg-muted/30">
+  <section id="blog" className="py-24 px-6 bg-muted/30 scroll-mt-20 md:scroll-mt-24">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
