@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ExternalLink, Github } from 'lucide-react';
+import taskflow from './asset/projectImages/TaskFlowapp.png';
+
 
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState('All');
@@ -38,11 +40,11 @@ export default function Projects() {
     {
       title: 'Task Manager',
       description: 'A productivity app to manage daily tasks with drag-and-drop functionality and local storage.',
-      image: 'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&h=500&fit=crop',
+      image: taskflow,
       tags: ['HTML', 'CSS', 'JavaScript','LocalStorage'],
       category: 'JavaScript',
       liveUrl: 'avitodolist.vercel.app',
-      githubUrl: '#',
+      githubUrl: 'https://github.com/avi7yt/To-do-list.git',
     },
     {
       title: 'Landing Page',
