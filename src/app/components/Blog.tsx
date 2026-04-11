@@ -4,6 +4,7 @@ import { Calendar, Clock, ArrowRight, Search } from 'lucide-react';
 
 export default function Blog() {
   const [searchQuery, setSearchQuery] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('All');
 
   const categories = ['All', 'Web Development', 'AI/ML', 'Career', 'Tutorial'];
 
@@ -89,21 +90,38 @@ export default function Blog() {
 
         {/* Category Pills */}
         <div className="flex flex-wrap justify-center gap-3 mb-12">
-          {categories.map((category) => (
-            <motion.button
-              key={category}
-              className="px-4 py-2 rounded-full bg-card border border-border hover:border-foreground/20 transition-colors text-sm"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              {category}
-            </motion.button>
-          ))}
+          {categories.map((category) => {
+            const isActive = selectedCategory === category;
+            return (
+              <motion.button
+                key={category}
+                onClick={() => setSelectedCategory(category)}
+                className={`px-4 py-2 rounded-full border border-border transition-colors text-sm ${isActive ? 'bg-foreground text-background' : 'bg-card hover:border-foreground/20'}`}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {category}
+              </motion.button>
+            );
+          })}
         </div>
 
         {/* Blog Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogPosts.map((post, index) => (
+          {blogPosts
+            .filter((post) => {
+              // Filter by category
+              if (selectedCategory !== 'All' && post.category !== selectedCategory) return false;
+              // Filter by search query (title or description)
+              if (!searchQuery) return true;
+              const q = searchQuery.trim().toLowerCase();
+              return (
+                post.title.toLowerCase().includes(q) ||
+                post.description.toLowerCase().includes(q) ||
+                (post.category && post.category.toLowerCase().includes(q))
+              );
+            })
+            .map((post, index) => (
             <motion.article
               key={post.title}
               initial={{ opacity: 0, y: 20 }}
