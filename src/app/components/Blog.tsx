@@ -1,10 +1,12 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Calendar, Clock, ArrowRight, Search } from 'lucide-react';
 
 export default function Blog() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const INITIAL_VISIBLE = 3;
+  const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE);
 
   const categories = ['All', 'Web Development', 'AI/ML', 'Career', 'Tutorial'];
 
@@ -59,6 +61,23 @@ export default function Blog() {
     },
   ];
 
+  // compute filtered posts based on search/category
+  const filteredPosts = blogPosts.filter((post) => {
+    if (selectedCategory !== 'All' && post.category !== selectedCategory) return false;
+    if (!searchQuery) return true;
+    const q = searchQuery.trim().toLowerCase();
+    return (
+      post.title.toLowerCase().includes(q) ||
+      post.description.toLowerCase().includes(q) ||
+      (post.category && post.category.toLowerCase().includes(q))
+    );
+  });
+
+  // reset visible count when filters change
+  useEffect(() => {
+    setVisibleCount(INITIAL_VISIBLE);
+  }, [searchQuery, selectedCategory]);
+
   return (
   <section id="blog" className="py-24 px-6 bg-muted/30 scroll-mt-20 md:scroll-mt-24">
       <div className="max-w-6xl mx-auto">
@@ -108,20 +127,7 @@ export default function Blog() {
 
         {/* Blog Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogPosts
-            .filter((post) => {
-              // Filter by category
-              if (selectedCategory !== 'All' && post.category !== selectedCategory) return false;
-              // Filter by search query (title or description)
-              if (!searchQuery) return true;
-              const q = searchQuery.trim().toLowerCase();
-              return (
-                post.title.toLowerCase().includes(q) ||
-                post.description.toLowerCase().includes(q) ||
-                (post.category && post.category.toLowerCase().includes(q))
-              );
-            })
-            .map((post, index) => (
+          {filteredPosts.slice(0, visibleCount).map((post, index) => (
             <motion.article
               key={post.title}
               initial={{ opacity: 0, y: 20 }}
@@ -172,20 +178,23 @@ export default function Blog() {
           ))}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="text-center mt-12"
-        >
-          <motion.button
-            className="px-8 py-3 border border-border rounded-lg hover:bg-accent transition-colors"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+        {filteredPosts.length > visibleCount && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-center mt-12"
           >
-            Load More Articles
-          </motion.button>
-        </motion.div>
+            <motion.button
+              onClick={() => setVisibleCount((v) => v + INITIAL_VISIBLE)}
+              className="px-8 py-3 border border-border rounded-lg hover:bg-accent transition-colors"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Load More Articles
+            </motion.button>
+          </motion.div>
+        )}
       </div>
     </section>
   );
