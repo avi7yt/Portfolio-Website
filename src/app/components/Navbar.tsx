@@ -3,7 +3,7 @@ import { Moon, Sun, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
 export default function Navbar() {
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState<boolean>(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -15,11 +15,40 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Initialize theme from localStorage or system preference on mount
   useEffect(() => {
-    if (isDark) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
+    try {
+      const saved = localStorage.getItem('theme');
+      if (saved === 'dark') {
+        setIsDark(true);
+        return;
+      }
+      if (saved === 'light') {
+        setIsDark(false);
+        return;
+      }
+    } catch (e) {
+      // ignore localStorage errors
+    }
+
+    // fallback to system preference
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      setIsDark(true);
+    }
+  }, []);
+
+  // Apply theme class and persist choice
+  useEffect(() => {
+    try {
+      if (isDark) {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      }
+    } catch (e) {
+      // ignore localStorage errors
     }
   }, [isDark]);
 
@@ -73,7 +102,7 @@ export default function Navbar() {
               </motion.a>
             ))}
             <motion.button
-              onClick={() => setIsDark(!isDark)}
+              onClick={() => setIsDark((prev) => !prev)}
               className="p-2 rounded-lg bg-muted hover:bg-accent transition-colors"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
@@ -85,7 +114,7 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center gap-4">
             <motion.button
-              onClick={() => setIsDark(!isDark)}
+              onClick={() => setIsDark((prev) => !prev)}
               className="p-2 rounded-lg bg-muted hover:bg-accent transition-colors"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
