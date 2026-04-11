@@ -146,7 +146,7 @@ export default function Blog() {
                   className="flex items-center gap-2 text-sm text-blue-500"
                   whileHover={{ x: 4 }}
                 >
-                  Read More
+                  <a href="avi7yt.vercel.app">Read More</a>
                   <ArrowRight className="w-4 h-4" />
                 </motion.div>
               </div>

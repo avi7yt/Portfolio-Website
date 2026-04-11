@@ -26,14 +26,14 @@ export default function Contact() {
     {
       icon: Mail,
       label: 'Email',
-      value: 'avi@example.com',
+      value: 'avivishwakarma7yt@gmail.com',
       href: 'mailto:avi@example.com',
     },
     {
       icon: MapPin,
       label: 'Location',
-      value: 'Lovely Professional University, Punjab',
-      href: '#',
+      value: 'ABES Engineering College, Ghaziabad',
+      href: 'https://maps.app.goo.gl/idS9ZrktwxidQFVE7',
     },
   ];
 
@@ -41,19 +41,19 @@ export default function Contact() {
     {
       icon: Linkedin,
       label: 'LinkedIn',
-      href: '#',
+      href: 'www.linkedin.com/in/avi-vishwakarma-b75350352',
       color: 'hover:text-blue-500',
     },
     {
       icon: Github,
       label: 'GitHub',
-      href: '#',
+      href: 'https://github.com/avi7yt',
       color: 'hover:text-foreground',
     },
     {
       icon: Instagram,
       label: 'Instagram',
-      href: '#',
+      href: 'https://www.instagram.com/avi7yt/',
       color: 'hover:text-pink-500',
     },
   ];
