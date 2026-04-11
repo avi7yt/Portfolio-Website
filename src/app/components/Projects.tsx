@@ -39,9 +39,9 @@ export default function Projects() {
       title: 'Task Manager',
       description: 'A productivity app to manage daily tasks with drag-and-drop functionality and local storage.',
       image: 'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&h=500&fit=crop',
-      tags: ['React', 'Tailwind', 'LocalStorage'],
-      category: 'React',
-      liveUrl: '#',
+      tags: ['HTML', 'CSS', 'JavaScript','LocalStorage'],
+      category: 'JavaScript',
+      liveUrl: 'avitodolist.vercel.app',
       githubUrl: '#',
     },
     {
@@ -144,6 +144,19 @@ export default function Projects() {
                       href={project.liveUrl}
                       className="flex items-center gap-2 text-sm text-blue-500 hover:text-blue-600 transition-colors"
                       whileHover={{ x: 2 }}
+                      onClick={(e) => {
+                        // Prevent scrolling to top when href is a placeholder '#'
+                        if (!project.liveUrl || project.liveUrl === '#') {
+                          e.preventDefault();
+                          return;
+                        }
+                        // Ensure the URL has a protocol and open in a new tab
+                        const url = project.liveUrl.startsWith('http')
+                          ? project.liveUrl
+                          : `https://${project.liveUrl}`;
+                        window.open(url, '_blank', 'noopener,noreferrer');
+                        e.preventDefault();
+                      }}
                     >
                       <ExternalLink className="w-4 h-4" />
                       Live Demo
@@ -152,6 +165,17 @@ export default function Projects() {
                       href={project.githubUrl}
                       className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
                       whileHover={{ x: 2 }}
+                      onClick={(e) => {
+                        if (!project.githubUrl || project.githubUrl === '#') {
+                          e.preventDefault();
+                          return;
+                        }
+                        const url = project.githubUrl.startsWith('http')
+                          ? project.githubUrl
+                          : `https://${project.githubUrl}`;
+                        window.open(url, '_blank', 'noopener,noreferrer');
+                        e.preventDefault();
+                      }}
                     >
                       <Github className="w-4 h-4" />
                       GitHub
