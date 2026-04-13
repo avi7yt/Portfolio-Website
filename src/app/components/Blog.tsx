@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Calendar, Clock, ArrowRight, Search } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { blogPosts } from '../data/blogPost';
 
 export default function Blog() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -10,56 +12,7 @@ export default function Blog() {
 
   const categories = ['All', 'Web Development', 'AI/ML', 'Career', 'Tutorial'];
 
-  const blogPosts = [
-    {
-      title: 'Getting Started with React: A Beginner\'s Guide',
-      description: 'Learn the fundamentals of React and build your first component-based application.',
-      date: '2026-03-15',
-      readTime: '5 min read',
-      category: 'Web Development',
-      image: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=500&fit=crop',
-    },
-    {
-      title: 'My Journey into AI and Machine Learning',
-      description: 'Sharing my experience learning AI as a web developer and the resources that helped me.',
-      date: '2026-03-10',
-      readTime: '7 min read',
-      category: 'AI/ML',
-      image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=500&fit=crop',
-    },
-    {
-      title: 'Building ExamSetu: Lessons Learned',
-      description: 'A deep dive into the development process and challenges of building an exam prep platform.',
-      date: '2026-03-05',
-      readTime: '10 min read',
-      category: 'Career',
-      image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=500&fit=crop',
-    },
-    {
-      title: 'Mastering Tailwind CSS: Tips and Tricks',
-      description: 'Boost your productivity with these essential Tailwind CSS techniques and best practices.',
-      date: '2026-02-28',
-      readTime: '6 min read',
-      category: 'Tutorial',
-      image: 'https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?w=800&h=500&fit=crop',
-    },
-    {
-      title: 'The Freelancer\'s Guide to Finding Clients',
-      description: 'Practical strategies for landing your first freelance web development projects.',
-      date: '2026-02-20',
-      readTime: '8 min read',
-      category: 'Career',
-      image: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&h=500&fit=crop',
-    },
-    {
-      title: 'Understanding JavaScript Promises and Async/Await',
-      description: 'Master asynchronous JavaScript with clear explanations and practical examples.',
-      date: '2026-02-15',
-      readTime: '9 min read',
-      category: 'Tutorial',
-      image: 'https://images.unsplash.com/photo-1579468118864-1b9ea3c0db4a?w=800&h=500&fit=crop',
-    },
-  ];
+  // blogPosts now imported from shared data module
 
   // compute filtered posts based on search/category
   const filteredPosts = blogPosts.filter((post) => {
@@ -129,7 +82,7 @@ export default function Blog() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredPosts.slice(0, visibleCount).map((post, index) => (
             <motion.article
-              key={post.title}
+              key={post.id || post.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -170,8 +123,10 @@ export default function Blog() {
                   className="flex items-center gap-2 text-sm text-blue-500"
                   whileHover={{ x: 4 }}
                 >
-                  <a href="avi7yt.vercel.app">Read More</a>
-                  <ArrowRight className="w-4 h-4" />
+                  <Link to={`/posts/${post.id}`} className="inline-flex items-center gap-2">
+                    <span>Read More</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
                 </motion.div>
               </div>
             </motion.article>
