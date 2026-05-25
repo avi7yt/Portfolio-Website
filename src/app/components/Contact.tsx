@@ -1,21 +1,43 @@
-import { useState } from 'react';
-import { motion } from 'motion/react';
-import { Mail, MapPin, Linkedin, Github, Instagram, Send } from 'lucide-react';
+import { useState } from "react";
+import { motion } from "motion/react";
+import { Mail, MapPin, Linkedin, Github, Instagram, Send } from "lucide-react";
+import emailjs from "@emailjs/browser";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
+    name: "",
+    email: "",
+    message: "",
   });
+  const [status, setStatus] = useState<
+    "idle" | "sending" | "success" | "error"
+  >("idle");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Handle form submission
+    setStatus("sending");
+    try {
+      await emailjs.send(
+        "service_3os2z4l",
+        "template_1ram7lk",
+        {
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        },
+        // Remove the 4th argument here
+      );
+      setStatus("success");
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error("EmailJS Error:", error); // Add this to see the actual error
+      setStatus("error");
+    }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -25,36 +47,36 @@ export default function Contact() {
   const contactInfo = [
     {
       icon: Mail,
-      label: 'Email',
-      value: 'avivishwakarma7yt@gmail.com',
-      href: 'mailto:avi@example.com',
+      label: "Email",
+      value: "avivishwakarma7yt@gmail.com",
+      href: "mailto:avivishwakarma7yt@gmail.com",
     },
     {
       icon: MapPin,
-      label: 'Location',
-      value: 'ABES Engineering College, Ghaziabad',
-      href: 'https://maps.app.goo.gl/idS9ZrktwxidQFVE7',
+      label: "Location",
+      value: "ABES Engineering College, Ghaziabad",
+      href: "https://maps.app.goo.gl/idS9ZrktwxidQFVE7",
     },
   ];
 
   const socialLinks = [
     {
       icon: Linkedin,
-      label: 'LinkedIn',
-      href: 'www.linkedin.com/in/avi-vishwakarma-b75350352',
-      color: 'hover:text-blue-500',
+      label: "LinkedIn",
+      href: "https://www.linkedin.com/in/avi-vishwakarma-b75350352",
+      color: "hover:text-blue-500",
     },
     {
       icon: Github,
-      label: 'GitHub',
-      href: 'https://github.com/avi7yt',
-      color: 'hover:text-foreground',
+      label: "GitHub",
+      href: "https://github.com/avi7yt",
+      color: "hover:text-foreground",
     },
     {
       icon: Instagram,
-      label: 'Instagram',
-      href: 'https://www.instagram.com/avi7yt/',
-      color: 'hover:text-pink-500',
+      label: "Instagram",
+      href: "https://www.instagram.com/avi7yt/",
+      color: "hover:text-pink-500",
     },
   ];
 
@@ -71,7 +93,8 @@ export default function Contact() {
           <h2 className="text-4xl md:text-5xl mb-4">Get In Touch</h2>
           <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-6" />
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Have a project in mind or want to collaborate? Feel free to reach out!
+            Have a project in mind or want to collaborate? Feel free to reach
+            out!
           </p>
         </motion.div>
 
@@ -85,7 +108,8 @@ export default function Contact() {
           >
             <h3 className="text-2xl mb-6">Let's Connect</h3>
             <p className="text-muted-foreground mb-8">
-              I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+              I'm always open to discussing new projects, creative ideas, or
+              opportunities to be part of your vision.
             </p>
 
             <div className="space-y-6 mb-8">
@@ -104,7 +128,9 @@ export default function Contact() {
                     <info.icon className="w-5 h-5" />
                   </div>
                   <div>
-                    <p className="text-sm text-muted-foreground">{info.label}</p>
+                    <p className="text-sm text-muted-foreground">
+                      {info.label}
+                    </p>
                     <p className="text-foreground">{info.value}</p>
                   </div>
                 </motion.a>
@@ -118,6 +144,8 @@ export default function Contact() {
                   <motion.a
                     key={social.label}
                     href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -192,11 +220,18 @@ export default function Contact() {
 
             <motion.button
               type="submit"
+              disabled={status === "sending"}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="w-full px-8 py-4 bg-foreground text-background rounded-lg flex items-center justify-center gap-2 hover:opacity-90 transition-opacity"
+              className="w-full px-8 py-4 bg-foreground text-background rounded-lg flex items-center justify-center gap-2 hover:opacity-90 transition-opacity disabled:opacity-50"
             >
-              Send Message
+              {status === "sending"
+                ? "Sending..."
+                : status === "success"
+                  ? "Message Sent!"
+                  : status === "error"
+                    ? "Failed — Try Again"
+                    : "Send Message"}
               <Send className="w-5 h-5" />
             </motion.button>
           </motion.form>
