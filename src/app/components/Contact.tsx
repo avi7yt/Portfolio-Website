@@ -25,12 +25,12 @@ export default function Contact() {
           email: formData.email,
           message: formData.message,
         },
-        // Remove the 4th argument here
+        "vtMJoQIwB-qaHhAYX",
       );
       setStatus("success");
       setFormData({ name: "", email: "", message: "" });
     } catch (error) {
-      console.error("EmailJS Error:", error); // Add this to see the actual error
+      console.error("EmailJS Error:", error);
       setStatus("error");
     }
   };
