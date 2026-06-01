@@ -12,14 +12,16 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
-    id: 'getting-started-with-react',
-    title: 'Getting Started with React: A Beginner\'s Guide',
-    description: 'Learn the fundamentals of React and build your first component-based application.',
-    date: '2026-03-15',
-    readTime: '5 min read',
-    category: 'Web Development',
-    image: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=500&fit=crop',
-    author: 'Avi Vishwakarma',
+    id: "getting-started-with-react",
+    title: "Getting Started with React: A Beginner's Guide",
+    description:
+      "Learn the fundamentals of React and build your first component-based application.",
+    date: "2026-03-15",
+    readTime: "5 min read",
+    category: "Web Development",
+    image:
+      "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=500&fit=crop",
+    author: "Avi Vishwakarma",
     content: `
 # Getting Started with React: A Beginner's Guide
 
@@ -65,14 +67,16 @@ React has a gentle learning curve, and with consistent practice, you'll be build
     `,
   },
   {
-    id: 'my-journey-into-ai',
-    title: 'My Journey into AI and Machine Learning',
-    description: 'Sharing my experience learning AI as a web developer and the resources that helped me.',
-    date: '2026-03-10',
-    readTime: '7 min read',
-    category: 'AI/ML',
-    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=500&fit=crop',
-    author: 'Avi Vishwakarma',
+    id: "my-journey-into-ai",
+    title: "My Journey into AI and Machine Learning",
+    description:
+      "Sharing my experience learning AI as a web developer and the resources that helped me.",
+    date: "2026-03-10",
+    readTime: "7 min read",
+    category: "AI/ML",
+    image:
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=500&fit=crop",
+    author: "Avi Vishwakarma",
     content: `
 # My Journey into AI and Machine Learning
 
@@ -126,14 +130,16 @@ Keep learning, stay curious!
     `,
   },
   {
-    id: 'building-examsetu',
-    title: 'Building ExamSetu: Lessons Learned',
-    description: 'A deep dive into the development process and challenges of building an exam prep platform.',
-    date: '2026-03-05',
-    readTime: '10 min read',
-    category: 'Career',
-    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=500&fit=crop',
-    author: 'Avi Vishwakarma',
+    id: "building-examsetu",
+    title: "Building ExamSetu: Lessons Learned",
+    description:
+      "A deep dive into the development process and challenges of building an exam prep platform.",
+    date: "2026-03-05",
+    readTime: "10 min read",
+    category: "Career",
+    image:
+      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=500&fit=crop",
+    author: "Avi Vishwakarma",
     content: `
 # Building ExamSetu: Lessons Learned
 
@@ -217,14 +223,16 @@ If you have an idea, start building today!
     `,
   },
   {
-    id: 'mastering-tailwind-css',
-    title: 'Mastering Tailwind CSS: Tips and Tricks',
-    description: 'Boost your productivity with these essential Tailwind CSS techniques and best practices.',
-    date: '2026-02-28',
-    readTime: '6 min read',
-    category: 'Tutorial',
-    image: 'https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?w=800&h=500&fit=crop',
-    author: 'Avi Vishwakarma',
+    id: "mastering-tailwind-css",
+    title: "Mastering Tailwind CSS: Tips and Tricks",
+    description:
+      "Boost your productivity with these essential Tailwind CSS techniques and best practices.",
+    date: "2026-02-28",
+    readTime: "6 min read",
+    category: "Tutorial",
+    image:
+      "https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?w=800&h=500&fit=crop",
+    author: "Avi Vishwakarma",
     content: `
 # Mastering Tailwind CSS: Tips and Tricks
 
@@ -335,14 +343,16 @@ Happy styling!
     `,
   },
   {
-    id: 'freelancer-guide',
-    title: 'The Freelancer\'s Guide to Finding Clients',
-    description: 'Practical strategies for landing your first freelance web development projects.',
-    date: '2026-02-20',
-    readTime: '8 min read',
-    category: 'Career',
-    image: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&h=500&fit=crop',
-    author: 'Avi Vishwakarma',
+    id: "freelancer-guide",
+    title: "The Freelancer's Guide to Finding Clients",
+    description:
+      "Practical strategies for landing your first freelance web development projects.",
+    date: "2026-02-20",
+    readTime: "8 min read",
+    category: "Career",
+    image:
+      "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&h=500&fit=crop",
+    author: "Avi Vishwakarma",
     content: `
 # The Freelancer's Guide to Finding Clients
 
@@ -453,14 +463,16 @@ You've got this!
     `,
   },
   {
-    id: 'javascript-async-await',
-    title: 'Understanding JavaScript Promises and Async/Await',
-    description: 'Master asynchronous JavaScript with clear explanations and practical examples.',
-    date: '2026-02-15',
-    readTime: '9 min read',
-    category: 'Tutorial',
-    image: 'https://images.unsplash.com/photo-1579468118864-1b9ea3c0db4a?w=800&h=500&fit=crop',
-    author: 'Avi Vishwakarma',
+    id: "javascript-async-await",
+    title: "Understanding JavaScript Promises and Async/Await",
+    description:
+      "Master asynchronous JavaScript with clear explanations and practical examples.",
+    date: "2026-02-15",
+    readTime: "9 min read",
+    category: "Tutorial",
+    image:
+      "https://images.unsplash.com/photo-1579468118864-1b9ea3c0db4a?w=800&h=500&fit=crop",
+    author: "Avi Vishwakarma",
     content: `
 # Understanding JavaScript Promises and Async/Await
 
@@ -657,6 +669,28 @@ Key takeaways:
 - Use parallel execution when possible
 
 Happy coding!
+    `,
+  },
+  {
+    id: "object oriented programming",
+    title: "Understanding Object-Oriented Programming in JavaScript",
+    description:
+      "Master the core concepts of OOP in JavaScript with clear explanations and practical examples.",
+    date: "2026-05-26",
+    readTime: "9 min read",
+    category: "Tutorial",
+    image:
+      "https://images.unsplash.com/photo-1579468118864-1b9ea3c0db4a?w=800&h=500&fit=crop",
+    author: "Akash Vishwakarma",
+    content: `
+    #Object Oriented Javascript
+    In this blog I will cover the topics which makes javascript different from the languages.
+
+    ##Topics: 
+    - Classes
+    - Inheritance
+    - Polymorphism
+    - Encapsulation
     `,
   },
 ];

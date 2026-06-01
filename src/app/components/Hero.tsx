@@ -91,6 +91,17 @@ export default function Hero() {
             >
               Contact Me
             </motion.button>
+            <motion.a
+              href="/resume.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-4 border border-border rounded-lg flex items-center justify-center gap-2 hover:bg-accent transition-colors"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              View Resume
+              <Download className="w-5 h-5" />
+            </motion.a>
           </motion.div>
         </motion.div>
 

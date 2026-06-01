@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Akash Vishwakarma — Web Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Clash+Display:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #111118;
+    --border: #1e1e2e;
+    --accent: #6ee7b7;
+    --accent2: #818cf8;
+    --accent3: #fb923c;
+    --text: #e2e8f0;
+    --muted: #64748b;
+    --mono: 'Space Mono', monospace;
+    --display: 'Syne', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  @media print {
+    @page { margin: 0.5in; size: A4 portrait; }
+    .no-print { display: none !important; }
+    #download-progress { display: none !important; }
+
+    body { background: #ffffff !important; color: #0f172a !important; }
+
+    .page {
+      box-shadow: none !important;
+      background: #ffffff !important;
+      border-color: #d1d5db !important;
+      animation: none !important;
+    }
+    .page::before, .page::after { opacity: 0.04 !important; }
+
+    .header { border-color: #d1d5db !important; background: #ffffff !important; }
+    .name { color: #0f172a !important; }
+    .name span { color: #059669 !important; }
+    .header-tag { color: #059669 !important; }
+    .title-line { color: #374151 !important; }
+    .contact-item { color: #374151 !important; }
+
+    .section-label { color: #059669 !important; }
+    .section-label::after { background: linear-gradient(to right, #d1d5db, transparent) !important; }
+
+    .about-text { color: #1e293b !important; border-left-color: #4338ca !important; }
+
+    .entry-title { color: #0f172a !important; }
+    .entry-sub { color: #374151 !important; }
+    .entry-desc { color: #1e293b !important; }
+    .entry-badge { color: #c2410c !important; border-color: #c2410c !important; }
+    .entry { border-color: #e5e7eb !important; }
+
+    .tag { background: #f1f5f9 !important; color: #1e293b !important; border-color: #cbd5e1 !important; }
+
+    .skill-group-label { color: #374151 !important; }
+    .skill-pill { background: #f1f5f9 !important; color: #1e293b !important; border-color: #cbd5e1 !important; }
+    .skill-pill.active { background: #d1fae5 !important; color: #065f46 !important; border-color: #059669 !important; }
+    .skill-pill.learning { background: #ede9fe !important; color: #3730a3 !important; border-color: #4338ca !important; }
+
+    .stat-label { color: #374151 !important; }
+    .stat-bar { background: #e5e7eb !important; }
+    .stat-fill { background: linear-gradient(to right, #059669, #4338ca) !important; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+
+    .edu-degree { color: #0f172a !important; }
+    .edu-school { color: #374151 !important; }
+    .edu-card { border-color: #d1d5db !important; background: #f8fafc !important; }
+
+    .main-col { border-color: #d1d5db !important; background: #ffffff !important; }
+    .side-col { background: #ffffff !important; }
+    .resume-footer { border-color: #d1d5db !important; background: #ffffff !important; }
+    .footer-text { color: #374151 !important; }
+    .footer-status { color: #059669 !important; }
+    .legend-item { color: #374151 !important; }
+    .status-dot { background: #059669 !important; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+
+    * { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  }
+
+  /* PDF export overrides applied via .pdf-mode class on body */
+  .pdf-mode, .pdf-mode .page {
+    background: #ffffff !important;
+    color: #0f172a !important;
+  }
+  .pdf-mode .page { border-color: #d1d5db !important; }
+  .pdf-mode .header { border-color: #d1d5db !important; background: #ffffff !important; }
+  .pdf-mode .name { color: #0f172a !important; }
+  .pdf-mode .name span { color: #059669 !important; }
+  .pdf-mode .header-tag { color: #059669 !important; }
+  .pdf-mode .title-line { color: #374151 !important; }
+  .pdf-mode .contact-item { color: #374151 !important; }
+  .pdf-mode .section-label { color: #059669 !important; }
+  .pdf-mode .about-text { color: #1e293b !important; border-left-color: #4338ca !important; }
+  .pdf-mode .entry-title { color: #0f172a !important; }
+  .pdf-mode .entry-sub { color: #374151 !important; }
+  .pdf-mode .entry-desc { color: #1e293b !important; }
+  .pdf-mode .entry-badge { color: #c2410c !important; border-color: #c2410c !important; }
+  .pdf-mode .entry { border-color: #e5e7eb !important; }
+  .pdf-mode .tag { background: #f1f5f9 !important; color: #1e293b !important; border-color: #cbd5e1 !important; }
+  .pdf-mode .skill-group-label { color: #374151 !important; }
+  .pdf-mode .skill-pill { background: #f1f5f9 !important; color: #1e293b !important; border-color: #cbd5e1 !important; }
+  .pdf-mode .skill-pill.active { background: #d1fae5 !important; color: #065f46 !important; border-color: #059669 !important; }
+  .pdf-mode .skill-pill.learning { background: #ede9fe !important; color: #3730a3 !important; border-color: #4338ca !important; }
+  .pdf-mode .stat-label { color: #374151 !important; }
+  .pdf-mode .stat-bar { background: #e5e7eb !important; }
+  .pdf-mode .stat-fill { background: linear-gradient(to right, #059669, #4338ca) !important; }
+  .pdf-mode .edu-degree { color: #0f172a !important; }
+  .pdf-mode .edu-school { color: #374151 !important; }
+  .pdf-mode .edu-card { border-color: #d1d5db !important; background: #f8fafc !important; }
+  .pdf-mode .main-col { border-color: #d1d5db !important; background: #ffffff !important; }
+  .pdf-mode .side-col { background: #ffffff !important; }
+  .pdf-mode .resume-footer { border-color: #d1d5db !important; background: #ffffff !important; }
+  .pdf-mode .footer-text { color: #374151 !important; }
+  .pdf-mode .footer-status { color: #059669 !important; }
+  .pdf-mode .legend-item { color: #374151 !important; }
+  .pdf-mode .section-label::after { background: linear-gradient(to right, #d1d5db, transparent) !important; }
+
+  body {
+    font-family: var(--display);
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    line-height: 1.6;
+  }
+
+  .page-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .print-btn {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .print-btn button {
+    border: none;
+    padding: 0.65rem 1.4rem;
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .btn-download {
+    background: var(--accent);
+    color: #0a0a0f;
+  }
+
+  .btn-print {
+    background: transparent;
+    color: var(--accent2);
+    border: 1px solid var(--accent2) !important;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+  }
+
+  .print-btn button:hover { opacity: 0.8; transform: translateY(-2px); }
+
+  #download-progress {
+    display: none;
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    background: var(--surface);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    padding: 0.6rem 1.2rem;
+    z-index: 999;
+    clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+  }
+
+  .page {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Corner decoration */
+  .page::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 120px; height: 120px;
+    background: conic-gradient(from 180deg at 100% 0%, var(--accent2) 0deg, transparent 90deg);
+    opacity: 0.15;
+  }
+
+  .page::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 80px; height: 80px;
+    background: conic-gradient(from 0deg at 0% 100%, var(--accent) 0deg, transparent 90deg);
+    opacity: 0.1;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    padding: 3rem 3rem 2rem;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+
+  .header-tag {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .header-tag::before {
+    content: '';
+    width: 20px; height: 1px;
+    background: var(--accent);
+  }
+
+  .name {
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+  }
+
+  .name span {
+    color: var(--accent);
+  }
+
+  .title-line {
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+    margin-bottom: 1.8rem;
+  }
+
+  .contact-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 1.5rem;
+  }
+
+  .contact-item {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    letter-spacing: 0.03em;
+  }
+
+  .contact-item span.dot {
+    width: 5px; height: 5px;
+    background: var(--accent2);
+    display: inline-block;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  }
+
+  /* ── BODY LAYOUT ── */
+  .body {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 0;
+  }
+
+  .main-col {
+    padding: 2.5rem 3rem;
+    border-right: 1px solid var(--border);
+  }
+
+  .side-col {
+    padding: 2.5rem 2rem;
+  }
+
+  /* ── SECTION ── */
+  .section {
+    margin-bottom: 2.2rem;
+  }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--border), transparent);
+  }
+
+  /* ── ABOUT ── */
+  .about-text {
+    font-size: 0.88rem;
+    color: #94a3b8;
+    line-height: 1.75;
+    border-left: 2px solid var(--accent2);
+    padding-left: 1rem;
+  }
+
+  /* ── EXPERIENCE / PROJECTS ── */
+  .entry {
+    margin-bottom: 1.6rem;
+    padding-bottom: 1.6rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .entry:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.3rem;
+    gap: 0.5rem;
+  }
+
+  .entry-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.01em;
+  }
+
+  .entry-badge {
+    font-family: var(--mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+    color: var(--accent3);
+    border: 1px solid var(--accent3);
+    padding: 0.15rem 0.5rem;
+    white-space: nowrap;
+    opacity: 0.8;
+  }
+
+  .entry-sub {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    margin-bottom: 0.6rem;
+  }
+
+  .entry-desc {
+    font-size: 0.82rem;
+    color: #94a3b8;
+    line-height: 1.7;
+  }
+
+  .entry-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-top: 0.6rem;
+  }
+
+  .tag {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.07em;
+    color: var(--accent2);
+    background: rgba(129,140,248,0.08);
+    border: 1px solid rgba(129,140,248,0.2);
+    padding: 0.15rem 0.5rem;
+  }
+
+  /* ── SIDEBAR SKILLS ── */
+  .skill-block {
+    margin-bottom: 1.5rem;
+  }
+
+  .skill-group-label {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+  }
+
+  .skill-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  .skill-pill {
+    font-family: var(--mono);
+    font-size: 0.64rem;
+    color: var(--text);
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    padding: 0.25rem 0.6rem;
+    letter-spacing: 0.05em;
+    transition: all 0.2s;
+  }
+
+  .skill-pill.active {
+    color: var(--accent);
+    border-color: rgba(110,231,183,0.3);
+    background: rgba(110,231,183,0.05);
+  }
+
+  .skill-pill.learning {
+    color: var(--accent3);
+    border-color: rgba(251,146,60,0.3);
+    background: rgba(251,146,60,0.05);
+  }
+
+  /* ── EDUCATION SIDE ── */
+  .edu-card {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .edu-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: linear-gradient(to bottom, var(--accent), var(--accent2));
+  }
+
+  .edu-degree {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.2rem;
+    padding-left: 0.5rem;
+  }
+
+  .edu-school {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    color: var(--muted);
+    padding-left: 0.5rem;
+    letter-spacing: 0.03em;
+    line-height: 1.5;
+  }
+
+  /* ── LEGEND ── */
+  .legend {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-family: var(--mono);
+    font-size: 0.55rem;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+  }
+
+  .legend-dot {
+    width: 8px; height: 8px;
+    display: inline-block;
+  }
+
+  .legend-dot.active { background: rgba(110,231,183,0.5); border: 1px solid var(--accent); }
+  .legend-dot.learning { background: rgba(251,146,60,0.5); border: 1px solid var(--accent3); }
+  .legend-dot.plain { background: rgba(255,255,255,0.1); border: 1px solid var(--border); }
+
+  /* ── STAT BAR ── */
+  .stat-row {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-label {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    color: var(--muted);
+    width: 80px;
+    letter-spacing: 0.03em;
+    flex-shrink: 0;
+  }
+
+  .stat-bar {
+    flex: 1;
+    height: 3px;
+    background: var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .stat-fill {
+    height: 100%;
+    background: linear-gradient(to right, var(--accent), var(--accent2));
+    border-radius: 2px;
+  }
+
+  /* ── FOOTER ── */
+  .resume-footer {
+    border-top: 1px solid var(--border);
+    padding: 1rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-text {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+  }
+
+  .footer-status {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+  }
+
+  .status-dot {
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .page { animation: fadeUp 0.5s ease forwards; }
+</style>
+</head>
+<body>
+
+<div class="page-wrapper">
+  <div class="print-btn no-print">
+    <button class="btn-download" onclick="downloadPDF()">⬇ DOWNLOAD PDF</button>
+    <button class="btn-print" onclick="window.print()">🖨 PRINT</button>
+  </div>
+
+  <div class="page">
+
+    <!-- HEADER -->
+    <div class="header">
+      <div class="header-tag">Frontend Web Developer</div>
+      <div class="name">Akash <span>Vishwakarma</span></div>
+      <div class="title-line">B.Tech CSE · ABES Engineering College · Available for Internship</div>
+      <div class="contact-grid">
+        <div class="contact-item"><span class="dot"></span> avivishwakarma7yt@gmail.com</div>
+        <div class="contact-item"><span class="dot"></span> +91 6306050858</div>
+        <div class="contact-item"><span class="dot"></span> github.com/avi7yt</div>
+        <div class="contact-item"><span class="dot"></span> linkedin.com/in/akash-vishwakarma-b75350352</div>
+        <div class="contact-item"><span class="dot"></span> Ghaziabad, UP</div>
+      </div>
+    </div>
+
+    <!-- BODY -->
+    <div class="body">
+
+      <!-- MAIN COLUMN -->
+      <div class="main-col">
+
+        <!-- ABOUT -->
+        <div class="section">
+          <div class="section-label">About</div>
+          <p class="about-text">
+            Motivated B.Tech Computer Science student with hands-on experience building responsive, user-friendly web interfaces. Proficient in HTML, CSS, Bootstrap, Tailwind CSS, and WordPress — with growing expertise in JavaScript and React. I build things that look good and work well, from pixel-perfect clones to real-world apps. Actively seeking a web development internship to contribute, grow, and ship meaningful products.
+          </p>
+        </div>
+
+        <!-- PROJECTS -->
+        <div class="section">
+          <div class="section-label">Projects</div>
+
+          <div class="entry">
+            <div class="entry-header">
+              <div class="entry-title">Personal Portfolio Website</div>
+              <div class="entry-badge">LIVE</div>
+            </div>
+            <div class="entry-sub">100% Vibe Coded · React · CSS · JavaScript</div>
+            <div class="entry-desc">
+              Built entirely using <strong style="color:var(--accent)">vibe coding</strong> — an AI-assisted development workflow — from concept to deployment without writing a single line manually. Leveraged React for component-based architecture, delivering a fully responsive, modern portfolio with smooth interactions and a professional UI that showcases projects and skills.
+            </div>
+            <div class="entry-tags">
+              <span class="tag">React</span><span class="tag">JavaScript</span><span class="tag">CSS3</span><span class="tag">Vibe Coding</span><span class="tag">AI-Assisted Dev</span><span class="tag">Component Architecture</span>
+            </div>
+          </div>
+
+          <div class="entry">
+            <div class="entry-header">
+              <div class="entry-title">Task Management App</div>
+              <div class="entry-badge">COMPLETED</div>
+            </div>
+            <div class="entry-sub">HTML · CSS · JavaScript</div>
+            <div class="entry-desc">
+              Built a functional task manager with add, delete, and status-toggle features. Focused on clean UI design and DOM manipulation without any frameworks — demonstrating core JavaScript skills and UX thinking.
+            </div>
+            <div class="entry-tags">
+              <span class="tag">DOM Manipulation</span><span class="tag">LocalStorage</span><span class="tag">CSS Grid</span>
+            </div>
+          </div>
+
+          <div class="entry">
+            <div class="entry-header">
+              <div class="entry-title">E-Commerce UI Clones</div>
+              <div class="entry-badge">3 PROJECTS</div>
+            </div>
+            <div class="entry-sub">Flipkart · Netflix · Amazon — HTML & CSS Only</div>
+            <div class="entry-desc">
+              Recreated pixel-accurate UI clones of Flipkart, Netflix, and Amazon landing pages using pure HTML and CSS — no frameworks. Demonstrates strong understanding of layout systems, flexbox, grid, and responsive design principles by reverse-engineering production-level interfaces.
+            </div>
+            <div class="entry-tags">
+              <span class="tag">Flexbox</span><span class="tag">CSS Grid</span><span class="tag">Media Queries</span><span class="tag">UI Replication</span>
+            </div>
+          </div>
+
+          <div class="entry">
+            <div class="entry-header">
+              <div class="entry-title">WordPress Website Development</div>
+              <div class="entry-badge">CMS</div>
+            </div>
+            <div class="entry-sub">WordPress · Theme Customization · Elementor</div>
+            <div class="entry-desc">
+              Created and customized WordPress-based websites with custom themes, plugins, and responsive layouts. Experience includes setting up CMS environments, configuring SEO, and delivering client-ready sites.
+            </div>
+            <div class="entry-tags">
+              <span class="tag">WordPress</span><span class="tag">PHP Templates</span><span class="tag">SEO</span><span class="tag">Plugins</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- SIDE COLUMN -->
+      <div class="side-col">
+
+        <!-- SKILLS -->
+        <div class="section">
+          <div class="section-label">Skills</div>
+
+          <div class="skill-block">
+            <div class="skill-group-label">Core</div>
+            <div class="skill-pills">
+              <span class="skill-pill active">HTML5</span>
+              <span class="skill-pill active">CSS3</span>
+              <span class="skill-pill active">Bootstrap</span>
+              <span class="skill-pill active">Tailwind</span>
+              <span class="skill-pill active">WordPress</span>
+            </div>
+          </div>
+
+          <div class="skill-block">
+            <div class="skill-group-label">Learning Now</div>
+            <div class="skill-pills">
+              <span class="skill-pill learning">JavaScript</span>
+              <span class="skill-pill learning">React</span>
+            </div>
+          </div>
+
+          <div class="skill-block">
+            <div class="skill-group-label">Tools & Others</div>
+            <div class="skill-pills">
+              <span class="skill-pill">Git</span>
+              <span class="skill-pill">GitHub</span>
+              <span class="skill-pill">VS Code</span>
+              <span class="skill-pill">Figma</span>
+              <span class="skill-pill active">Vibe Coding</span>
+              <span class="skill-pill">Responsive Design</span>
+            </div>
+          </div>
+
+          <div class="legend">
+            <div class="legend-item"><span class="legend-dot active"></span> Proficient</div>
+            <div class="legend-item"><span class="legend-dot learning"></span> Learning</div>
+            <div class="legend-item"><span class="legend-dot plain"></span> Familiar</div>
+          </div>
+        </div>
+
+        <!-- PROFICIENCY -->
+        <div class="section">
+          <div class="section-label">Proficiency</div>
+
+          <div class="stat-row">
+            <div class="stat-label">HTML/CSS</div>
+            <div class="stat-bar"><div class="stat-fill" style="width:90%"></div></div>
+          </div>
+          <div class="stat-row">
+            <div class="stat-label">Bootstrap</div>
+            <div class="stat-bar"><div class="stat-fill" style="width:82%"></div></div>
+          </div>
+          <div class="stat-row">
+            <div class="stat-label">Tailwind</div>
+            <div class="stat-bar"><div class="stat-fill" style="width:78%"></div></div>
+          </div>
+          <div class="stat-row">
+            <div class="stat-label">WordPress</div>
+            <div class="stat-bar"><div class="stat-fill" style="width:75%"></div></div>
+          </div>
+          <div class="stat-row">
+            <div class="stat-label">JavaScript</div>
+            <div class="stat-bar"><div class="stat-fill" style="width:42%"></div></div>
+          </div>
+          <div class="stat-row">
+            <div class="stat-label">React</div>
+            <div class="stat-bar"><div class="stat-fill" style="width:28%"></div></div>
+          </div>
+        </div>
+
+        <!-- EDUCATION -->
+        <div class="section">
+          <div class="section-label">Education</div>
+          <div class="edu-card">
+            <div class="edu-degree">B.Tech — CSE</div>
+            <div class="edu-school">ABES Engineering College<br>Ghaziabad, UP · 2025 – 2029<br>Dr. A.P.J. Abdul Kalam Technical University</div>
+          </div>
+        </div>
+
+        <!-- SOFT SKILLS -->
+        <div class="section">
+          <div class="section-label">Soft Skills</div>
+          <div class="skill-pills">
+            <span class="skill-pill">Quick Learner</span>
+            <span class="skill-pill">Detail-Oriented</span>
+            <span class="skill-pill">Team Player</span>
+            <span class="skill-pill">Problem Solver</span>
+            <span class="skill-pill">Self-Motivated</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="resume-footer">
+      <div class="footer-text">AKASH VISHWAKARMA · WEB DEVELOPER · 2025</div>
+      <div class="footer-status">
+        <span class="status-dot"></span>
+        OPEN TO INTERNSHIP OPPORTUNITIES
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  function downloadPDF() {
+    const originalTitle = document.title;
+    document.title = 'Akash_Vishwakarma_Resume';
+    window.print();
+    setTimeout(() => { document.title = originalTitle; }, 1000);
+  }
+</script>
+</body>
+</html>

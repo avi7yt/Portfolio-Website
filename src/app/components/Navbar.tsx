@@ -101,6 +101,15 @@ export default function Navbar() {
                 {link.name}
               </motion.a>
             ))}
+            <motion.a
+              href="/resume.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-foreground transition-colors"
+              whileHover={{ y: -2 }}
+            >
+              Resume
+            </motion.a>
             <motion.button
               onClick={() => setIsDark((prev) => !prev)}
               className="p-2 rounded-lg bg-muted hover:bg-accent transition-colors"
@@ -153,6 +162,15 @@ export default function Navbar() {
                       {link.name}
                     </a>
                   ))}
+                  <a
+                    href="/resume.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="text-muted-foreground hover:text-foreground transition-colors py-2"
+                  >
+                    Resume
+                  </a>
                 </div>
               </div>
             </motion.div>
