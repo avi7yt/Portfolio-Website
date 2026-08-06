@@ -11,58 +11,69 @@ export default function Projects() {
 
   const projects = [
     {
-      title: 'ExamSetu',
-      description: 'A comprehensive exam preparation platform helping students ace their exams with smart study tools and resources.',
-      image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&h=500&fit=crop',
-      tags: ['React', 'Node.js', 'MongoDB'],
-      category: 'React',
-      liveUrl: '#',
-      githubUrl: '#',
+      title: "ExamSetu",
+      description:
+        "A comprehensive exam preparation platform helping students ace their exams with smart study tools and resources.",
+      image:
+        "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&h=500&fit=crop",
+      tags: ["React", "Node.js", "MongoDB"],
+      category: "React",
+      liveUrl: "#",
+      githubUrl: "#",
     },
     {
-      title: 'Portfolio Website',
-      description: 'A modern, responsive portfolio website built with HTML, CSS, and JavaScript featuring smooth animations.',
-      image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=500&fit=crop',
-      tags: ['HTML', 'CSS', 'JavaScript'],
-      category: 'HTML/CSS',
-      liveUrl: '#',
-      githubUrl: '#',
+      title: "Portfolio Website",
+      description:
+        "A modern, responsive portfolio website built with HTML, CSS, and JavaScript featuring smooth animations.",
+      image:
+        "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=500&fit=crop",
+      tags: ["HTML", "CSS", "JavaScript"],
+      category: "HTML/CSS",
+      liveUrl: "#",
+      githubUrl: "#",
     },
     {
-      title: 'Weather App',
-      description: 'Real-time weather application that fetches data from APIs and displays beautiful weather information.',
-      image: 'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=800&h=500&fit=crop',
-      tags: ['JavaScript', 'API', 'CSS'],
-      category: 'JavaScript',
-      liveUrl: '#',
-      githubUrl: '#',
+      title: "Weather App",
+      description:
+        "Real-time weather application that fetches data from APIs and displays beautiful weather information.",
+      image:
+        "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=800&h=500&fit=crop",
+      tags: ["JavaScript", "API", "CSS"],
+      category: "JavaScript",
+      liveUrl: "#",
+      githubUrl: "#",
     },
     {
-      title: 'Task Manager',
-      description: 'A productivity app to manage daily tasks with drag-and-drop functionality and local storage.',
+      title: "Flowdo",
+      description:
+        "A production-quality, full-stack task management app with a marketing landing page, JWT authentication, and a Notion/Linear-style dashboard (tasks, calendar, analytics, history, profile, and settings).",
       image: taskflow,
-      tags: ['HTML', 'CSS', 'JavaScript','LocalStorage'],
-      category: 'JavaScript',
-      liveUrl: 'avitodolist.vercel.app',
-      githubUrl: 'https://github.com/avi7yt/To-do-list.git',
+      tags: ["React", "Tailwind CSS", "JavaScript", "React Router", "Node.js"],
+      category: "JavaScript",
+      liveUrl: "flowdo-nine.vercel.app",
+      githubUrl: "https://github.com/avi7yt/Flowdo.git",
     },
     {
-      title: 'Landing Page',
-      description: 'Modern landing page for a tech startup with smooth scroll animations and responsive design.',
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop',
-      tags: ['HTML', 'CSS', 'JavaScript'],
-      category: 'HTML/CSS',
-      liveUrl: '#',
-      githubUrl: '#',
+      title: "Landing Page",
+      description:
+        "Modern landing page for a tech startup with smooth scroll animations and responsive design.",
+      image:
+        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop",
+      tags: ["HTML", "CSS", "JavaScript"],
+      category: "HTML/CSS",
+      liveUrl: "#",
+      githubUrl: "#",
     },
     {
-      title: 'Quiz Application',
-      description: 'Interactive quiz app with timer, score tracking, and multiple categories of questions.',
-      image: 'https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?w=800&h=500&fit=crop',
-      tags: ['JavaScript', 'HTML', 'CSS'],
-      category: 'JavaScript',
-      liveUrl: '#',
-      githubUrl: '#',
+      title: "Quiz Application",
+      description:
+        "Interactive quiz app with timer, score tracking, and multiple categories of questions.",
+      image:
+        "https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?w=800&h=500&fit=crop",
+      tags: ["JavaScript", "HTML", "CSS"],
+      category: "JavaScript",
+      liveUrl: "#",
+      githubUrl: "#",
     },
   ];
 
