@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ExternalLink, Github } from 'lucide-react';
-import taskflow from './asset/projectImages/TaskFlowapp.png';
+import flowdo from './asset/projectImages/flowdo.png';
+import pulsar from './asset/projectImages/pulsar.png';
 
 
 export default function Projects() {
@@ -47,22 +48,21 @@ export default function Projects() {
       title: "Flowdo",
       description:
         "A production-quality, full-stack task management app with a marketing landing page, JWT authentication, and a Notion/Linear-style dashboard (tasks, calendar, analytics, history, profile, and settings).",
-      image: taskflow,
+      image: flowdo,
       tags: ["React", "Tailwind CSS", "JavaScript", "React Router", "Node.js"],
       category: "JavaScript",
       liveUrl: "flowdo-nine.vercel.app",
       githubUrl: "https://github.com/avi7yt/Flowdo.git",
     },
     {
-      title: "Landing Page",
+      title: "Pulsar — Landing Page",
       description:
-        "Modern landing page for a tech startup with smooth scroll animations and responsive design.",
-      image:
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop",
-      tags: ["HTML", "CSS", "JavaScript"],
-      category: "HTML/CSS",
-      liveUrl: "#",
-      githubUrl: "#",
+        "A marketing landing page for Pulsar, a (fictional) real-time infrastructure startup. Built with React 18, TypeScript, and Vite, with scroll-triggered animations powered by Framer Motion.",
+      image: pulsar,
+      tags: ["React", "TypeScript", "Node.js", "Framer Motion"],
+      category: "React",
+      liveUrl: "https://pulsar-landing-page-pied.vercel.app/",
+      githubUrl: "https://github.com/avi7yt/Pulsar-Landing-Page.git",
     },
     {
       title: "Quiz Application",
