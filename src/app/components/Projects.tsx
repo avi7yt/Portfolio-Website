@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ExternalLink, Github } from 'lucide-react';
 import taskflow from './asset/projectImages/TaskFlowapp.png';
+import flowdo from './asset/projectImages/flowdo.png'
 
 
 export default function Projects() {
@@ -47,7 +48,7 @@ export default function Projects() {
       title: "Flowdo",
       description:
         "A production-quality, full-stack task management app with a marketing landing page, JWT authentication, and a Notion/Linear-style dashboard (tasks, calendar, analytics, history, profile, and settings).",
-      image: taskflow,
+      image: flowdo,
       tags: ["React", "Tailwind CSS", "Javascript", "Node.js"],
       category: "JavaScript",
       liveUrl: "flowdo-nine.vercel.app",
